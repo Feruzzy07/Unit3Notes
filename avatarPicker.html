@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Avatar Picker</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h1>PICK YOUR AVATAR!!</h1>
+        <img id="img" width="300" height="300" src="">
+        <div class="row">
+            <h3>Background</h3>
+            <button id="avatar1">Kirby</button>
+            <button id="avatar2">King Dedede</button>
+            <button id="avatar3">Waddle Dee</button>
+            <button id="avatar4">Meta Knight</button>
+            <button id="avatar5">Marx</button>
+            <button id="avatar6">Magolor</button>
+        </div>
+        <button id="clear">RESET</button>
+    </div>
+</div>
+<script>
+    const picture = document.querySelector('img');
+    const avatar1 = document.getElementById('avatar1');
+    const avatar2 = document.getElementById('avatar2');
+    const avatar3 = document.getElementById('avatar3');
+    const avatar4 = document.getElementById('avatar4');
+    const avatar5 = document.getElementById('avatar5');
+    const avatar6 = document.getElementById('avatar6');
+    const clear = document.getElementById('clear');
+    avatar1.addEventListener('click', function(e){
+        picture.src="https://static.wikia.nocookie.net/kirby/images/c/c6/Kirby_RtDDX.png/revision/latest?cb=20230127153557&path-prefix=en";
+    });
+    avatar2.addEventListener('click', function(e){
+        picture.src="https://static.wikia.nocookie.net/kirby/images/b/b9/King_Dedede_RtDDX.png/revision/latest?cb=20230127154645&path-prefix=en";
+    });
+    avatar3.addEventListener('click', function(e){
+        picture.src="https://static.wikia.nocookie.net/kirby/images/6/67/KatFL_Waddle_Dee_artwork.png/revision/latest?cb=20220213193603&path-prefix=en";
+    });
+    avatar4.addEventListener('click', function(e){
+        picture.src="";
+    });
+    avatar5.addEventListener('click', function(e){
+        picture.src="";
+    });
+    avatar6.addEventListener('click', function(e){
+        picture.src="";
+    });
+</script>
+
+</body>
+</html>
