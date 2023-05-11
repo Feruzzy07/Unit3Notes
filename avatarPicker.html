@@ -9,9 +9,10 @@
 <div class="container">
     <div class="content">
         <h1>PICK YOUR AVATAR!!</h1>
-        <img id="img" width="300" height="300" src="">
+        <img id="img" width="300" height="300" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+        alt="picture of a blank avatar">
         <div class="row">
-            <h3>Background</h3>
+            <h3>Avatars: </h3>
             <button id="avatar1">Kirby</button>
             <button id="avatar2">King Dedede</button>
             <button id="avatar3">Waddle Dee</button>
@@ -32,23 +33,26 @@
     const avatar6 = document.getElementById('avatar6');
     const clear = document.getElementById('clear');
     avatar1.addEventListener('click', function(e){
-        picture.src="https://static.wikia.nocookie.net/kirby/images/c/c6/Kirby_RtDDX.png/revision/latest?cb=20230127153557&path-prefix=en";
+        picture.src="https://cdn.vox-cdn.com/thumbor/hECEnLduVQp1Q0b1mGrT6LV6TEs=/1400x1050/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/23761868/Screen_Shot_2022_07_12_at_10.55.30_AM.png";
     });
     avatar2.addEventListener('click', function(e){
-        picture.src="https://static.wikia.nocookie.net/kirby/images/b/b9/King_Dedede_RtDDX.png/revision/latest?cb=20230127154645&path-prefix=en";
+        picture.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Ey3jYzIrv3BPax2CRZ_p_HpImQchM52e1g&usqp=CAU";
     });
     avatar3.addEventListener('click', function(e){
-        picture.src="https://static.wikia.nocookie.net/kirby/images/6/67/KatFL_Waddle_Dee_artwork.png/revision/latest?cb=20220213193603&path-prefix=en";
+        picture.src="https://i1.sndcdn.com/avatars-iCyzV0dak0hrPbrZ-iABrjg-t500x500.jpg";
     });
     avatar4.addEventListener('click', function(e){
-        picture.src="";
+        picture.src="https://www.giantbomb.com/a/uploads/scale_medium/0/5621/200845-metaknight.jpg";
     });
     avatar5.addEventListener('click', function(e){
-        picture.src="";
+        picture.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxC1sgS6fNZ4fPjm-LePhYhC1OweRqEaYo_A&usqp=CAU";
     });
     avatar6.addEventListener('click', function(e){
-        picture.src="";
+        picture.src="https://images.nintendolife.com/338451f2d82fe/1280x720.jpg";
     });
+    clear.addEventListener('click', function(e){
+        picture.src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png";
+    })
 </script>
 
 </body>
