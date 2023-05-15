@@ -20,6 +20,7 @@
                 </div>
             </div>
             <button id="sayHello">Say Hello!</button>
+
             <div class="text">
 
             </div>
@@ -39,6 +40,9 @@
         const fullname = document.createElement('h2');
         fullname.innerHTML = `${first} ${last}`;
         content.insertAdjacentElement('afterbegin', fullname);
+
+        firstName.value = "";
+        lastName.value = "";
     });
 </script>
 
