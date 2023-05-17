@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Click The Kirb</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <style>
+        .hidden{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h2 id="lose">User goes here</h2>
+            <div class="scoreplace">
+                <h3 id="score">Cookies Fed To Kirby: 0</h3>
+            </div>
+            <div class="text">
+
+            </div>
+            <input type="text" id="username" name="username" placeholder="Enter Username">
+            <button id="submit">Submit</button>
+            <div class="row">
+                <div class="avatar">
+                    <img id="picture" height="80" width="80" alt="your avatar!" src="https://qph.cf2.quoracdn.net/main-qimg-9ddddc56b796efb52218381f133e5d61">
+                </div>
+            </div>
+            <button id="click">FEED THE KIRBY!</button>
+            <div class="row">
+                <fieldset>
+                    <legend><h3>Shop!</h3></legend>
+                    <div class="row">
+                        <label for="2x">Instead of feeding 1 cookie you feed 2!:(Need 50 cookies)</label>
+                        <button id="2x">Buy!</button>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label for="win">Buy The Super Star!(You win the game)(10,000 Cookies Needed)</label>
+                        <button id="win">Buy!</button>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+<script>
+    const content = document.querySelector('.text');
+
+    const user = document.querySelector('user');
+    const username = document.getElementById('username');
+    const submit = document.getElementById('submit');
+
+    submit.addEventListener('click', function(e){
+        let displayuser = username.value;
+
+        const actualuser = document.createElement('h2');
+        actualuser.innerHTML = `${displayuser}`;
+        content.insertAdjacentElement('afterbegin', actualuser);
+
+        const unwantedElement = document.querySelector('#lose');
+        unwantedElement.remove();
+
+        username.classList.add("hidden");
+        submit.classList.add("hidden");
+    });
+
+    let score = document.getElementById('score');
+    const scorePlace = document.querySelector('.scoreplace');
+    const click = document.getElementById('click');
+    const picture = document.getElementById('picture');
+
+    score = 0;
+    click.addEventListener('click', function(e){
+        score++;
+        scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
+
+        if (score === 50){
+            picture.src = "https://imgix.ranker.com/user_node_img/50067/1001327515/original/mike-photo-u1?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&crop=faces&h=90&w=90";
+        }
+        if(score === 100){
+            picture.src = "https://images.saymedia-content.com/.image/t_share/MTc0NDU3OTAxNzgzMTk3MzE4/best-kirby-copy-abilities.png";
+        }
+        if(score === 1000){
+            picture.src = "https://i.kym-cdn.com/photos/images/newsfeed/000/802/512/313.jpg";
+        }
+        if(score === 10000){
+            picture.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScbu8KL9qDy-U05iYY0D83ljdIgITj7Srg3EOUexVGfaTMqZe3fEGjeaD2gXzC-ASobZs&usqp=CAU";
+        }
+    });
+
+    const times2 = document.getElementById('2x');
+
+    times2.addEventListener('click', function(e){
+        if(score === 50){
+            score -= 50;
+            scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
+        }
+    });
+
+
+</script>
+</body>
+</html>

@@ -9,8 +9,8 @@ label {
     display: block;
     line-height: 1.25rem;
     font-weight: 500;
-    font-size: 14px;
-    color: #374151;
+    font-size: 18px;
+    color: black;
 }
 
 input[type="text"], textarea, select{
@@ -23,7 +23,7 @@ input[type="text"], textarea, select{
     color: #374151;
 }
 fieldset{
-    border: 1px solid #db6500;
+    border: 1px solid #000000;
     border-radius: 6px;
     width: fit-content;
     margin-bottom: 16px;
@@ -33,7 +33,7 @@ fieldset{
 
 fieldset legend{
     font-size: 14px;
-    color: #374151;
+    color: #000000;
 }
 
 input[type="checkbox"]{
@@ -75,4 +75,8 @@ section header{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.avatar {
+    border-radius: 8px;
+    border: 8px solid black;
 }
