@@ -80,3 +80,6 @@ section header{
     border-radius: 8px;
     border: 8px solid black;
 }
+.hidden{
+    display:none;
+}

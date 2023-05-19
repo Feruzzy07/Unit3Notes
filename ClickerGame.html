@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <title>Click The Kirb</title>
     <link href="style.css" rel="stylesheet" type="text/css">
-    <style>
+    <style id="style">
         .hidden{
             display:none;
+        }
+        .times2{
+            color:red
+        }
+        .bigger{
+            color:red
+        }
+        .huger{
+            color:red
+        }
+        .winner{
+            color:red
         }
     </style>
 </head>
@@ -32,13 +44,28 @@
                 <fieldset>
                     <legend><h3>Shop!</h3></legend>
                     <div class="row">
-                        <label for="2x">Instead of feeding 1 cookie you feed 2!:(Need 50 cookies)</label>
+                        <label for="2x" class="times2">Instead of feeding 1 cookie you feed 2!:(Need 50 cookies)</label>
                         <button id="2x">Buy!</button>
                     </div>
                     <br>
                     <div class="row">
-                        <label for="win">Buy The Super Star!(You win the game)(10,000 Cookies Needed)</label>
+                        <label for="big" class="bigger">Bigger Cookies! 1 cookie = 2 cookies!(Need 500 Cookies)</label>
+                        <button id="big">Buy!</button>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label for="huge" class="huger">Even Bigger Cookies! 1 cookie = 5 cookies!!(Need 1000 Cookies)</label>
+                        <button id="huge">Buy!</button>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label for="win" class="winner">Buy The Super Star!(You win the game)(10,000 Cookies Needed)</label>
                         <button id="win">Buy!</button>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label for="prank" class="pranker">Prank kirby!😈(Need 15,000 Cookies)</label>
+                        <button id="prank">Buy!</button>
                     </div>
                 </fieldset>
             </div>
@@ -75,6 +102,17 @@
         score++;
         scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
 
+        if(plus === 1){
+            score++;
+        }
+        if(extra === 1){
+            score--;
+            score += 3;
+        }
+        if(more === 1){
+            score += 3;
+        }
+
         if (score === 50){
             picture.src = "https://imgix.ranker.com/user_node_img/50067/1001327515/original/mike-photo-u1?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&crop=faces&h=90&w=90";
         }
@@ -87,14 +125,57 @@
         if(score === 10000){
             picture.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScbu8KL9qDy-U05iYY0D83ljdIgITj7Srg3EOUexVGfaTMqZe3fEGjeaD2gXzC-ASobZs&usqp=CAU";
         }
+        if(score >= 50){
+            style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;}</style>";
+            if(score < 500){
+                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:red}</style>"
+            }
+        }
+        if(score >= 500){
+            style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green}</style>"
+        }
     });
 
     const times2 = document.getElementById('2x');
+    const style = document.getElementById('style');
 
+
+    let plus = 0;
     times2.addEventListener('click', function(e){
-        if(score === 50){
+        if(score >= 50){
             score -= 50;
             scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
+            plus = 1;
+            times2.classList.add("hidden");
+        }
+    });
+
+    const big = document.getElementById('big');
+    let extra = 0;
+    big.addEventListener('click', function(e){
+        if(score >= 500){
+            score -= 500;
+            scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
+            extra = 1;
+        }
+    });
+
+    const prank = document.getElementById('prank');
+    prank.addEventListener('click', function(e){
+        if(score >= 15000){
+            score -= 15000;
+            scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
+            picture.src = "https://i.kym-cdn.com/entries/icons/original/000/040/399/kfcover.jpg";
+        }
+    });
+
+    const bigger = document.getElementById('bigger');
+    let more = 0;
+    bigger.addEventListener('click', function(e){
+        if(score >= 1000){
+            score -= 1000;
+            scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
+            more = 1;
         }
     });
 
