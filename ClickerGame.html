@@ -20,6 +20,9 @@
         .winner{
             color:red
         }
+        .pranker{
+            color:red
+        }
     </style>
 </head>
 <body>
@@ -41,7 +44,7 @@
             </div>
             <button id="click">FEED THE KIRBY!</button>
             <div class="row">
-                <fieldset>
+                <fieldset id="clear">
                     <legend><h3>Shop!</h3></legend>
                     <div class="row">
                         <label for="2x" class="times2">Instead of feeding 1 cookie you feed 2!:(Need 50 cookies)</label>
@@ -68,6 +71,11 @@
                         <button id="prank">Buy!</button>
                     </div>
                 </fieldset>
+                <br>
+                <form>
+                <button id="reset">RESET!</button>
+                </form>
+                <h1><div id="end"></div></h1>
             </div>
         </div>
     </div>
@@ -110,7 +118,7 @@
             score += 3;
         }
         if(more === 1){
-            score += 3;
+            score += 5;
         }
 
         if (score === 50){
@@ -128,11 +136,29 @@
         if(score >= 50){
             style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;}</style>";
             if(score < 500){
-                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:red}</style>"
+                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:red} .huger{color:red} .winner{color:red} .pranker{color:red}</style>"
             }
         }
         if(score >= 500){
             style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green}</style>"
+            if(score < 1000){
+                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:red} .winner{color:red} .pranker{color:red}</style>"
+            }
+        }
+        if(score >= 1000){
+            style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green}</style>"
+            if(score < 10000){
+                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green} .winner{color:red} .pranker{color:red}</style>"
+            }
+        }
+        if(score >= 10000){
+            style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green} .winner{color:green}</style>"
+            if(score < 5000){
+                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green} .winner{color:green} .pranker{color:red}</style>"
+            }
+        }
+        if(score >= 15000){
+            style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green} .winner{color:green} .pranker{color:green}</style>"
         }
     });
 
@@ -157,6 +183,7 @@
             score -= 500;
             scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
             extra = 1;
+            big.classList.add("hidden");
         }
     });
 
@@ -166,17 +193,51 @@
             score -= 15000;
             scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
             picture.src = "https://i.kym-cdn.com/entries/icons/original/000/040/399/kfcover.jpg";
+            prank.classList.add("hidden");
         }
     });
 
-    const bigger = document.getElementById('bigger');
+    const huge = document.getElementById('huge');
     let more = 0;
-    bigger.addEventListener('click', function(e){
+    huge.addEventListener('click', function(e){
         if(score >= 1000){
             score -= 1000;
             scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
             more = 1;
+            huge.classList.add("hidden");
         }
+    });
+
+    const win = document.getElementById('win');
+    const clear = document.getElementById('clear');
+    let displayend = document.getElementById('end');
+    win.addEventListener('click', function(e){
+        if (score >= 10000){
+            score -= 1;
+            scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
+            win.classList.add("hidden");
+            clear.classList.add("hidden");
+            displayend.textContent = 'You Win! Kirby Is Now Ready To Reach For The Stars!🌟';
+        }
+    });
+
+    const reset = document.getElementById('reset');
+    reset.addEventListener('click', function(e){
+        score = 0;
+        picture.src = "https://qph.cf2.quoracdn.net/main-qimg-9ddddc56b796efb52218381f133e5d61";
+        more = 0;
+        extra = 0;
+        plus = 0;
+        win.classList.remove("hidden");
+        clear.classList.remove("hidden");
+        huge.classList.remove("hidden");
+        prank.classList.remove("hidden");
+        big.classList.remove("hidden");
+        username.classList.remove("hidden");
+        submit.classList.remove("hidden");
+
+        style.innerHTML = "<style>.hidden{display:none;} .times2{color:red;} .bigger{color:red} .huger{color:red} .winner{color:red} .pranker{color:red}</style>"
+        scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
     });
 
 
