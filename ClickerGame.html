@@ -17,6 +17,9 @@
         .huger{
             color:red
         }
+        .gigantic{
+            color:red
+        }
         .winner{
             color:red
         }
@@ -39,10 +42,13 @@
             <button id="submit">Submit</button>
             <div class="row">
                 <div class="avatar">
-                    <img id="picture" height="80" width="80" alt="your avatar!" src="https://qph.cf2.quoracdn.net/main-qimg-9ddddc56b796efb52218381f133e5d61">
+                    <img id="picture" height="80" width="80" class="picture" alt="your avatar!" src="https://qph.cf2.quoracdn.net/main-qimg-9ddddc56b796efb52218381f133e5d61">
                 </div>
             </div>
             <button id="click">FEED THE KIRBY!</button>
+            <form>
+                <button id="reset">RESET!</button>
+            </form>
             <div class="row">
                 <fieldset id="clear">
                     <legend><h3>Shop!</h3></legend>
@@ -52,7 +58,7 @@
                     </div>
                     <br>
                     <div class="row">
-                        <label for="big" class="bigger">Bigger Cookies! 1 cookie = 2 cookies!(Need 500 Cookies)</label>
+                        <label for="big" class="bigger">Bigger Cookies! 1 cookie = 2 cookies!(Need 250 Cookies)</label>
                         <button id="big">Buy!</button>
                     </div>
                     <br>
@@ -62,20 +68,28 @@
                     </div>
                     <br>
                     <div class="row">
-                        <label for="win" class="winner">Buy The Super Star!(You win the game)(10,000 Cookies Needed)</label>
+                        <label for="giant" class="gigantic">Gigantic Cookies! 1 cookie = 10 cookies!!(Need 2,500 Cookies)</label>
+                        <button id="giant">Buy!</button>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label for="win" class="winner">Buy The Super Star!(You win the game)(5,000 Cookies Needed)</label>
                         <button id="win">Buy!</button>
                     </div>
                     <br>
                     <div class="row">
-                        <label for="prank" class="pranker">Prank kirby!😈(Need 15,000 Cookies)</label>
+                        <label for="prank" class="pranker">Prank kirby!😈(Need 7,000 Cookies)</label>
                         <button id="prank">Buy!</button>
                     </div>
                 </fieldset>
-                <br>
-                <form>
-                <button id="reset">RESET!</button>
-                </form>
                 <h1><div id="end"></div></h1>
+                <div class="prank">
+                    <img id="image" height="500" width="500" class="hidden" alt="pranked kirby" src="https://i.kym-cdn.com/entries/icons/original/000/040/399/kfcover.jpg">
+                </div>
+                <div class="congrats">
+                    <img id="image1" height="500" width="500" class="hidden" alt="winning kirby" src="https://i.kym-cdn.com/photos/images/newsfeed/000/802/512/313.jpg">
+                </div>
+                <br>
             </div>
         </div>
     </div>
@@ -118,47 +132,56 @@
             score += 3;
         }
         if(more === 1){
-            score += 5;
+            score += 6;
+        }
+        if(additional === 1){
+            score += 10;
         }
 
-        if (score === 50){
+        if (score >= 50){
             picture.src = "https://imgix.ranker.com/user_node_img/50067/1001327515/original/mike-photo-u1?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&crop=faces&h=90&w=90";
         }
-        if(score === 100){
+        if(score >= 100){
             picture.src = "https://images.saymedia-content.com/.image/t_share/MTc0NDU3OTAxNzgzMTk3MzE4/best-kirby-copy-abilities.png";
         }
-        if(score === 1000){
+        if(score >= 1000){
             picture.src = "https://i.kym-cdn.com/photos/images/newsfeed/000/802/512/313.jpg";
         }
-        if(score === 10000){
+        if(score >= 5000){
             picture.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScbu8KL9qDy-U05iYY0D83ljdIgITj7Srg3EOUexVGfaTMqZe3fEGjeaD2gXzC-ASobZs&usqp=CAU";
         }
         if(score >= 50){
             style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;}</style>";
-            if(score < 500){
-                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:red} .huger{color:red} .winner{color:red} .pranker{color:red}</style>"
+            if(score < 250){
+                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:red} .huger{color:red} .gigantic{color:red} .winner{color:red} .pranker{color:red}</style>"
             }
         }
-        if(score >= 500){
+        if(score >= 250){
             style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green}</style>"
             if(score < 1000){
-                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:red} .winner{color:red} .pranker{color:red}</style>"
+                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:red} .gigantic{color:red} .winner{color:red} .pranker{color:red}</style>"
             }
         }
         if(score >= 1000){
             style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green}</style>"
-            if(score < 10000){
-                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green} .winner{color:red} .pranker{color:red}</style>"
+            if(score < 2500){
+                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green} .gigantic{color:red} .winner{color:red} .pranker{color:red}</style>"
             }
         }
-        if(score >= 10000){
-            style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green} .winner{color:green}</style>"
+        if(score >= 2500){
+            style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green} .gigantic{color:red}</style>"
             if(score < 5000){
-                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green} .winner{color:green} .pranker{color:red}</style>"
+                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green} .gigantic{color:green} .winner{color:red} .pranker{color:red}</style>"
             }
         }
-        if(score >= 15000){
-            style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green} .winner{color:green} .pranker{color:green}</style>"
+        if(score >= 5000){
+            style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green} .gigantic{color:green} .winner{color:green}</style>"
+            if(score < 5000){
+                style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green} .gigantic{color:green}.winner{color:green} .pranker{color:red}</style>"
+            }
+        }
+        if(score >= 7000){
+            style.innerHTML = "<style>.hidden{display:none;} .times2{color:green;} .bigger{color:green} .huger{color:green} .gigantic{color:green} .winner{color:green} .pranker{color:green}</style>"
         }
     });
 
@@ -179,8 +202,8 @@
     const big = document.getElementById('big');
     let extra = 0;
     big.addEventListener('click', function(e){
-        if(score >= 500){
-            score -= 500;
+        if(score >= 250){
+            score -= 250;
             scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
             extra = 1;
             big.classList.add("hidden");
@@ -188,12 +211,21 @@
     });
 
     const prank = document.getElementById('prank');
+    const image = document.getElementById('image');
     prank.addEventListener('click', function(e){
-        if(score >= 15000){
-            score -= 15000;
+        if(score >= 7000){
+            score -= 7000;
             scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
-            picture.src = "https://i.kym-cdn.com/entries/icons/original/000/040/399/kfcover.jpg";
+            displayend.textContent = 'You sucesfully pranked Kirby! Good Job! 😈';
             prank.classList.add("hidden");
+            image.classList.remove("hidden");
+            image.classList.add("image");
+
+            win.classList.remove("hidden");
+            clear.classList.add("hidden");
+            huge.classList.add("hidden");
+            prank.classList.add("hidden");
+            big.classList.add("hidden");
         }
     });
 
@@ -208,16 +240,32 @@
         }
     });
 
-    const win = document.getElementById('win');
+    const giant = document.getElementById('giant');
+    let additional = 0;
+    giant.addEventListener('click', function(e){
+       if(score >= 2500){
+           score -= 2500;
+           scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
+           additional = 1;
+           giant.classList.add("hidden");
+       }
+    });
+
     const clear = document.getElementById('clear');
+    const win = document.getElementById('win');
     let displayend = document.getElementById('end');
+    const image1 = document.getElementById('image1');
     win.addEventListener('click', function(e){
-        if (score >= 10000){
+        if (score >= 5000){
             score -= 1;
             scorePlace.innerHTML = `<h3 id="score">Cookies Fed To Kirby: ${score}</h3>`;
             win.classList.add("hidden");
             clear.classList.add("hidden");
             displayend.textContent = 'You Win! Kirby Is Now Ready To Reach For The Stars!🌟';
+
+            image1.classList.remove("hidden");
+            image1.classList.add("image");
+
         }
     });
 
